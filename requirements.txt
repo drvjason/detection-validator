@@ -1,0 +1,26 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Detection Rule Validator v6.1 — requirements.txt
+# Tested on Python 3.11 (required for match/case syntax)
+# Deploy target: Streamlit Community Cloud (streamlit.io)
+#
+# IMPORTANT: Streamlit is PINNED to avoid silent breakage of the custom CSS
+# overrides in app.py that target Streamlit's internal DOM class names
+# (e.g. .stApp, [data-testid="stDecoration"], .stTextArea > label).
+# These selectors change between Streamlit minor releases without notice.
+# Before upgrading, test all custom styling in a staging environment.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core UI framework — pinned for CSS stability (see note above)
+streamlit==1.32.2
+
+# YAML parsing — required for Sigma rule ingestion (RuleParser._sigma)
+pyyaml>=6.0.1
+
+# ─────────────────────────────────────────────────────────────────────────────
+# All other dependencies used by app.py / detection_validator.py are part of
+# the Python standard library and do NOT need to be listed here:
+#
+#   base64, csv, datetime, fnmatch, hashlib, html, importlib, io, json,
+#   logging, pathlib, re, string, sys, time, uuid, random, argparse,
+#   collections, dataclasses, enum, typing
+# ─────────────────────────────────────────────────────────────────────────────
